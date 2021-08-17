@@ -1,0 +1,7 @@
+{% extends "base.html" %} {% block title %}{% endblock%} {% block content%}
+<h1>Pets</h1>
+
+<div class="contain">
+  {% for pet in pets %} <img src="{{pet.photo_url}}" alt="" /> {% endfor %}
+</div>
+{% endblock %}
