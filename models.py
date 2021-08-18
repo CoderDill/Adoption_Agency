@@ -12,6 +12,8 @@ def connect_db(app):
 class Pet(db.Model):
     """Pet Model"""
 
+    __tablename__ = "pets"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False)
     species = db.Column(db.Text, nullable=False)

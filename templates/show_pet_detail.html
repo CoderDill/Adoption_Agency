@@ -1,7 +1,14 @@
 {% extends "base.html" %} {% block title %}{% endblock%} {% block content%}
 <div class="container">
-  <h1 class="display-1 text-center">Add Pet</h1>
-  <div class="row justify-content-center">
+    <div class="row justify-content-center"></div>
+  <h1 class="display-1">{{pet.name}}'s Details</h1>
+  
+    <img src="{{pet.photo_url}}" />
+    <p>Species: {{pet.species}}</p>
+    <p>Age: {{pet.age}}</p>
+    <p>Notes: {{pet.notes}}</p>
+    
+  
     <div class="col-md-8">
       <form method="POST">
         {{ form.hidden_tag() }} {% for field in form if field.widget.input_type
@@ -10,7 +17,7 @@
           {{field.label}} {{field(class_="form-control")}}
         </div>
         {% for error in field.errors %} {{ error }} {% endfor %} {% endfor %}
-        <button class="btn btn-success btn-lg">Add Pet</button>
+        <button class="btn btn-success btn-lg">Edit Pet</button>
         <a href="/" class="btn btn-danger btn-lg">Go Back</a>
       </form>
     </div>

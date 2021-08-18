@@ -1,15 +1,23 @@
 {% extends "base.html" %} {% block title %}{% endblock%} {% block content%}
-<h1>Pets</h1>
 
-<div class="contain">
-  {% for pet in pets %} <img src="{{pet.photo_url}}" alt="" />
+<div class="container">
+  <h1 class="display-1 text-center">Pets</h1>
+  {% for pet in pets %}
+</div>
+  <img src="{{pet.photo_url}}"/>
   {% if pet.available %}
-  <span>{{pet.name}} is <b class="text-danger">Available!</b></span>
+  <span>{{pet.name}} is <b class="text-danger">Available!</b
+    ><a href="/{{pet.id}}">Details</a></span
+  >
+
   {% else %}
   <p>Sorry, this pet isn't available.</p>
-  {% endif %} {% endfor %}
+  {% endif %} 
+    </div>
+  {% endfor %}
+
+  <form action="/add">
+    <button class="btn btn-primary mt-2">Add a Pet</button>
+  </form>
 </div>
-<form action="/add">
-  <button class="btn btn-success">Add a Pet</button>
-</form>
 {% endblock %}
