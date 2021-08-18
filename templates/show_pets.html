@@ -2,6 +2,14 @@
 <h1>Pets</h1>
 
 <div class="contain">
-  {% for pet in pets %} <img src="{{pet.photo_url}}" alt="" /> {% endfor %}
+  {% for pet in pets %} <img src="{{pet.photo_url}}" alt="" />
+  {% if pet.available %}
+  <span>{{pet.name}} is <b class="text-danger">Available!</b></span>
+  {% else %}
+  <p>Sorry, this pet isn't available.</p>
+  {% endif %} {% endfor %}
 </div>
+<form action="/add">
+  <button class="btn btn-success">Add a Pet</button>
+</form>
 {% endblock %}
