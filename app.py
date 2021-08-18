@@ -18,12 +18,14 @@ db.create_all()
 
 @app.route("/")
 def show_pets():
+    """Show all Pets"""
     pets = Pet.query.all()
     return render_template("/show_pets.html", pets=pets)
 
 
 @app.route("/add", methods=["GET", "POST"])
 def add_pet():
+    """Show add pet Form."""
     form = AddPetForm()
 
     if form.validate_on_submit():
@@ -43,6 +45,7 @@ def add_pet():
 
 @app.route("/<int:pet_id>", methods=["GET", "POST"])
 def show_pet_detail(pet_id):
+    """Show Pet details plus edit form"""
     pet = Pet.query.get(pet_id)
     form = AddPetForm()
 
